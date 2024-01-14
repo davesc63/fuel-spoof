@@ -28,6 +28,15 @@ else
     echo "Please install using 'sudo python3 -m pip install pymobiledevice3'"
     exit 1
 fi
+# Check if jq is installed
+if command -v jq &>/dev/null; then
+    #echo "pymobiledevice3 is installed"
+    echo -e "\n"
+else
+    echo "jq not found"
+    echo "Please install jq"
+    exit 1
+fi
 
 
 # Function to make API request and extract data based on user choice
@@ -70,8 +79,9 @@ echo "3) U95"
 echo "4) U98"
 echo "5) Diesel"
 echo "6) LPG"
+echo "e) Exit"
 echo -e "\n"
-read -p "Enter your choice (1, 2, 3, 4, 5 or 6): " user_choice
+read -p "Enter your choice (1, 2, 3, 4, 5, 6 or e): " user_choice
 
 case $user_choice in
     1)
@@ -91,6 +101,9 @@ case $user_choice in
         ;;
     6)
         get_api_data "LPG"
+        ;;
+    e)  echo "Exiting script..."
+        exit 1
         ;;
     *)
         echo "Invalid choice. Exiting."
