@@ -27,6 +27,15 @@ Install python using `homebrew`:
 brew install python
 ```
 
+# Prerequisite - python
+jq is required to extract key/values from the json API response data. A suggestion is to use [homebrew](https://docs.brew.sh/Installation)
+
+Install python using `homebrew`:
+
+```shell
+brew install jq
+```
+
 # Prerequisite - pymobiledevice3
 
 Source: https://github.com/doronz88/pymobiledevice3/tree/master
