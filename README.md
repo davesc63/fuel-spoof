@@ -37,7 +37,7 @@ Install pymobiledevice3 using `pip`:
 python3 -m pip install -U pymobiledevice3
 ```
 # Installation
-1. Download fuel-spoof.sh
+1. Download [fuel-spoof.sh](https://github.com/davesc63/fuel-spoof/releases/tag/v1.0.1)
 
 
 2. Make it executable:
