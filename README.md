@@ -27,7 +27,7 @@ Install python using `homebrew`:
 brew install python
 ```
 
-# Prerequisite - pymobiledeveice3
+# Prerequisite - pymobiledevice3
 
 Source: https://github.com/doronz88/pymobiledevice3/tree/master
 
