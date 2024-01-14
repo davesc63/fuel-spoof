@@ -27,7 +27,7 @@ Install python using `homebrew`:
 brew install python
 ```
 
-# Prerequisite - python
+# Prerequisite - jq
 jq is required to extract key/values from the json API response data. A suggestion is to use [homebrew](https://docs.brew.sh/Installation)
 
 Install python using `homebrew`:
