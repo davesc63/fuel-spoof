@@ -54,9 +54,14 @@ python3 -m pip install -U pymobiledevice3
 chmod +X fuel-spoof.sh
 ```
 
-3. Connected your iOS17 device to your Mac
+3. Give your user permissions to run the executable:
+```shell
+sudo chmod 755 'fuel-spoof.sh'
+```
 
-4. Execute the script
+4. Connected your iOS17 device to your Mac
+
+5. Execute the script
 ```shell
 ./fuel-spoof.sh
 ```
