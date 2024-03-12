@@ -5,6 +5,8 @@
 - https://geoport.me
 - https://github.com/davesc63/GeoPort/
 
+<img src ="https://raw.githubusercontent.com/davesc63/GeoPort/main/images/geoport-demo.gif">
+
 
 # Introduction
 iOS 17 brought some challenges with allowing us to simulate the location on iOS devices.
