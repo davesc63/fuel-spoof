@@ -58,7 +58,7 @@ python3 -m pip install -U pymobiledevice3
 
 2. Make it executable:
 ```shell
-chmod +X fuel-spoof.sh
+chmod +x fuel-spoof.sh
 ```
 
 3. Connected your iOS17 device to your Mac

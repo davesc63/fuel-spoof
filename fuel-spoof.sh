@@ -42,11 +42,12 @@ fi
 # Function to make API request and extract data based on user choice
 get_api_data() {
     local choice=$1
+    local state=$2
     local api_url="https://projectzerothree.info/api.php?format=json"
     local response=$(curl -sS --location $api_url)
     
     # Extract data based on user choice
-    local selected_data=$(echo "$response" | jq -r '.regions[] | select(.region == "All").prices[] | select(.type == "'"$choice"'")')
+    local selected_data=$(echo "$response" | jq -r '.regions[] | select(.region == "'"$state"'").prices[] | select(.type == "'"$choice"'")')
     
     # Extract relevant information
     local type=$(echo $selected_data | jq -r '.type')
@@ -66,12 +67,13 @@ get_api_data() {
     location="$lat $lng"
 }
 
-# Present user with options
 echo -e "\n======== Welcome to iOS17 fuel spoofing ========="
 echo -e "Fuel data sourced from projectzerothree.info"
 echo -e "Requires pymobiledevice3 / python"
 echo -e "Please consider buying me a coffee - Thank you!"
 echo -e "=================================================\n"
+
+# Present user with fuel options
 echo -e "\nSelect a fuel type:"
 echo "1) E10"
 echo "2) U91"
@@ -81,26 +83,64 @@ echo "5) Diesel"
 echo "6) LPG"
 echo "e) Exit"
 echo -e "\n"
-read -p "Enter your choice (1, 2, 3, 4, 5, 6 or e): " user_choice
 
-case $user_choice in
+# Present user with state options
+read -p "Enter your choice (1, 2, 3, 4, 5, 6 or e): " fuel_choice
+echo -e "\nSelect a state:"
+echo "1) All (Best of all states)"
+echo "2) VIC"
+echo "3) NSW"
+echo "4) QLD"
+echo "5) WA"
+echo "e) Exit"
+echo -e "\n"
+read -p "Enter your choice (1, 2, 3, 4, 5, 6 or e): " state_choice
+
+# Assign the state based on the user's choice
+case $state_choice in
     1)
-        get_api_data "E10"
+        state="All"
         ;;
     2)
-        get_api_data "U91"
+        state="VIC"
         ;;
     3)
-        get_api_data "U95"
+        state="NSW"
         ;;
     4)
-        get_api_data "U98"
+        state="QLD"
         ;;
     5)
-        get_api_data "Diesel"
+        state="WA"
+        ;;
+    e)
+        echo "Exiting script..."
+        exit 1
+        ;;
+    *)
+        echo "Invalid choice. Exiting."
+        exit 1
+        ;;
+esac
+
+case $fuel_choice in
+    1)
+        get_api_data "E10" $state
+        ;;
+    2)
+        get_api_data "U91" $state
+        ;;
+    3)
+        get_api_data "U95" $state
+        ;;
+    4)
+        get_api_data "U98" $state
+        ;;
+    5)
+        get_api_data "Diesel" $state
         ;;
     6)
-        get_api_data "LPG"
+        get_api_data "LPG" $state
         ;;
     e)  echo "Exiting script..."
         exit 1
